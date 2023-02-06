@@ -11,10 +11,9 @@ bot = telebot.TeleBot(TOKEN)
 def start(message):
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
     keyboard.add(types.KeyboardButton("Рациональный"), types.KeyboardButton("Комплексный"))
-    bot.send_message(message.chat.id, f"Привет, {message.from_user.first_name}!\nВыбери режим работы калькулятора", reply_markup=keyboard)
+    bot.send_message(message.chat.id, f"Привет🤝, {message.from_user.first_name}!\nВыбери режим работы калькулятора", reply_markup=keyboard)
 
 @bot.message_handler(content_types=["text"])
-
 def keyboard_op(message):
     if message.text == "Рациональный":
         keyboard_op = types.ReplyKeyboardMarkup(resize_keyboard=True , one_time_keyboard=True)
@@ -65,20 +64,25 @@ def operait_raz(message):
 def operait_kom(message):
     if message.text == "+":
         bot.send_message(message.from_user.id, 'Хорошо. Введи два числа. К примеру "1 5".')
-        bot.register_next_step_handler(message, opp.sumcalc)
+        bot.register_next_step_handler(message, opp_km.sumcalc_kom)
     elif message.text == "-":
         bot.send_message(message.from_user.id, 'Хорошо. Введи два числа. К примеру "9 5".')
-        bot.register_next_step_handler(message, opp.minus)
+        bot.register_next_step_handler(message, opp_km.minus_kom)
     elif message.text == "*":
         bot.send_message(message.from_user.id, 'Хорошо. Введи два числа. К примеру "4 5".')
-        bot.register_next_step_handler(message, opp.multiply)
+        bot.register_next_step_handler(message, opp_km.multiply_kom)
     elif message.text == "/":
         bot.send_message(message.from_user.id, 'Хорошо. Введи два числа. К примеру "8.5 2".')
-        bot.register_next_step_handler(message, opp.degree)
+        bot.register_next_step_handler(message, opp_km.degree_kom)
     else:
         bot.send_message(message.from_user.id, 'Недоступная операция!')
         time.sleep(2)
         bot.register_next_step_handler(message, keyboard_op)
 
 
-bot.polling(non_stop=True)
+
+
+
+bot.polling(none_stop=True)
+ 
+
