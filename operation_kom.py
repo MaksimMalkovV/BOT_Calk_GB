@@ -1,14 +1,10 @@
 import telebot
 import re
 import bot_GB 
-from telebot import types
+import telebot
 
 TOKEN = "5831329247:AAFTrRtZUiEtxAz2t3SINEr_QdIy33QzkFs"
 bot_GB = telebot.TeleBot(TOKEN)
-
-def kebord():
-    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    keyboard.add(types.KeyboardButton("/start"))
 
 def sumcalc_kom(message):
     try:

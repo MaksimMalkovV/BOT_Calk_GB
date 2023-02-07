@@ -1,6 +1,7 @@
 import telebot
 import re
 
+
 TOKEN = "5831329247:AAFTrRtZUiEtxAz2t3SINEr_QdIy33QzkFs"
 bot = telebot.TeleBot(TOKEN)
 
@@ -14,6 +15,7 @@ def sumcalc(message):
                 number2 = float(number2)
                 bot.send_message(
                     message.from_user.id,'Сумма двоих введённых тобой чисел равна - ' +str(number1 + number2))
+                start
             except Exception:
                 bot.send_message(
                     message.from_user.id,'Вы ввели данные не в правильном формате.\nВы ввели не число.')
